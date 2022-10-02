@@ -25,7 +25,8 @@ const forecast = (latitude, longitude, callback) => {
         //     Precipitation : body.current.precip,
         //     Location : body.location.name
         // }
-        `${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} degrees outside. There is a ${body.current.precip}% chance of rain. It feels like ${body.current.feelslike} degrees outside`
+        `${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} degrees outside. There is a ${body.current.precip}% chance of rain. It feels like ${body.current.feelslike} degrees outside.
+        The humidity is ${body.current.humidity}.`
       );
     }
   });
