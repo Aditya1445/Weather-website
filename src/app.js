@@ -8,10 +8,10 @@ const forecast = require('./utils/forecast');
 // remember express always needs absoloute path for the static folder not a relative path
 
 // console.log(__dirname);
-// console.log(path.join(__dirname, '../public'));
+console.log(path.join(__dirname, '../public'));
 
 const app = express();
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 // Define path for express config
 const publicDirectorypath = path.join(__dirname, '../public');
 const viewPath = path.join(__dirname, '../templates/views')
@@ -19,7 +19,7 @@ const partialsPath = path.join(__dirname, '../templates/partials')
 
 
 // Setup handle bars and views location 
-app.set('view engine', 'hbs')
+app.set('view engine', 'hbs') // change the default view engine
 app.set('views', viewPath);
 hbs.registerPartials(partialsPath);
 
@@ -32,7 +32,7 @@ app.get('', (req, res)=>{
         name: 'Dynamic html'
     });
 })
-app.get('/about', (req, res)=>{
+app.get('/about', (req, res)=>{ 
     res.render('about',{
         title:'About Weather App',
         name: 'About Page'
@@ -51,7 +51,7 @@ app.get('/help/*', (req, res)=>{
     res.render('404',{
         title:'404',
         name:'david',
-        errormessage:'Help artice not found'
+        errormessage:'Help article not found'
     })
 })
 app.get('/products', (req, res)=>{
@@ -103,26 +103,9 @@ app.get('*', (req, res)=>{
 })
 
 
-
 app.listen(port, ()=>{
     console.log('Server is up on port', port);
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // app.get('/weather', (req, res)=>{
